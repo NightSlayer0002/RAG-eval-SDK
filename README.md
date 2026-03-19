@@ -3,7 +3,6 @@
 **A diagnostic evaluation toolkit for RAG pipelines that catches failure modes RAGAS and other tools miss.**
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Gemini 2.5 Flash](https://img.shields.io/badge/LLM-Gemini%202.5%20Flash-orange.svg)](https://ai.google.dev/)
 
 > **TL;DR:** We detect 44% more hallucinations than RAGAS by combining embedding metrics with position bias detection, phantom chunk analysis, and failure mode classification — signals that existing tools are architecturally blind to.
