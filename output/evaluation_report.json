@@ -1,0 +1,8 @@
+{
+  "user_query": "What are some affordable hotels near Malpani Infertility Clinic?",
+  "llm_response": "Several affordable hotels near Malpani Infertility Clinic include Hotel Raj Palace, Hotel Blue Nile, and Hotel Woodland. These hotels offer basic amenities and are budget-friendly.",
+  "relevance_score": 0.723,
+  "hallucination_score": 0.266,
+  "latency_seconds": 0.0,
+  "estimated_cost_usd": 5e-05
+}
