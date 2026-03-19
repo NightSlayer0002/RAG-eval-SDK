@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-eval-sdk"
+version = "1.0.0"
+description = "Production-ready RAG evaluation SDK with novel Inter-Chunk Conflict Detection and Position Bias Detection"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Abhijay Gupta"}
+]
+keywords = ["rag", "evaluation", "llm", "hallucination", "conflict-detection", "position-bias"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+dependencies = [
+    "sentence-transformers>=2.2.0",
+    "torch>=2.0.0",
+    "google-genai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "matplotlib>=3.7.0",
+]
+
+[project.optional-dependencies]
+benchmark = [
+    "ragas>=0.1.0",
+    "datasets>=2.14.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+rag-eval = "rag_eval_sdk.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/abhijaygupta/rag-eval-sdk"
+
+[tool.setuptools.packages.find]
+include = ["rag_eval_sdk*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
