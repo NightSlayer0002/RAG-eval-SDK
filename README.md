@@ -16,7 +16,7 @@ Tested on **live Gemini 2.5 Flash API responses** — not synthetic data.
 | Metric | Baseline | RAGAS | **Our SDK** |
 |---|---|---|---|
 | Hallucinations flagged | 9/52 (17%) | 18/52 (35%) | **26/52 (50%)** ✅ |
-| Position bias detected | 0/52 | 0/52 | **22/52 (42%)** 🔥 |
+| Position bias detected | 0/52 | 0/52 | **22/52 (42%)** |
 | Failure mode diagnosis | ❌ | ❌ | ✅ |
 | Chunk attribution map | ❌ | ❌ | ✅ |
 
