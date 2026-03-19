@@ -5,7 +5,7 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Gemini 2.5 Flash](https://img.shields.io/badge/LLM-Gemini%202.5%20Flash-orange.svg)](https://ai.google.dev/)
 
-> **TL;DR:** We detect 44% more hallucinations than RAGAS by combining embedding metrics with position bias detection, phantom chunk analysis, and failure mode classification — signals that existing tools are architecturally blind to.
+> **TL;DR:** Detected 44% more hallucinations than RAGAS by combining embedding metrics with position bias detection, phantom chunk analysis, and failure mode classification — signals that existing tools are architecturally blind to.
 
 ---
 
@@ -131,13 +131,9 @@ rag-eval-sdk/
 │   ├── run_benchmarks.py          # Synthetic benchmark (20 scenarios)
 │   └── results/                   # Benchmark outputs & comparison charts
 │
-├── src/                           # Original pipeline (pre-SDK)
+├── src/                           # Original pipeline (pre-SDK-version)
 ├── data/                          # Sample context chunks & queries
 ├── tests/                         # Unit tests
-├── docs/
-│   ├── SDK_GUIDE.txt              # Developer integration guide
-│   ├── LLM_AND_RAG_FUNDAMENTALS.txt  # Concepts & background
-│   └── MARKET_POSITIONING_2026.txt   # Market analysis
 │
 ├── pyproject.toml                 # Package configuration
 ├── requirements.txt
@@ -148,18 +144,7 @@ rag-eval-sdk/
 
 ## 🧪 How the Benchmark Works
 
-All three methods evaluate the **same** Gemini response for fair comparison:
-
-```
-User Query → Gemini 2.5 Flash → Response
-                                    ↓
-                    ┌───────────────┼───────────────┐
-                    ↓               ↓               ↓
-                Baseline        RAGAS-style      Full SDK
-              (cosine sim)   (per-sentence)  (6 features)
-                    ↓               ↓               ↓
-              9/52 flagged    18/52 flagged    26/52 flagged
-```
+All three methods evaluate the **same** Gemini response for fair comparison.
 
 52 scenarios across 5 categories:
 - **Faithful** (10) — clean grounding, should pass
@@ -189,12 +174,6 @@ This project builds on:
 | Embeddings | all-MiniLM-L6-v2 (sentence-transformers) |
 | Language | Python 3.9+ |
 | Package | pip-installable (pyproject.toml) |
-
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
 
 ---
 
