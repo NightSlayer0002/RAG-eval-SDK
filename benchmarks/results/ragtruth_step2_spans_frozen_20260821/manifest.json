@@ -1,0 +1,104 @@
+{
+  "arguments": {
+    "bootstrap_samples": 1000,
+    "claim_granularity": "clause",
+    "contradiction_threshold": 0.55,
+    "data_dir": "D:\\LLM realdata\\benchmarks\\data\\RAGTruth",
+    "detector": "sdk",
+    "embedding_batch_size": 32,
+    "embedding_cache_entries": 8192,
+    "embedding_device": null,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "evidence_per_claim": 3,
+    "evidence_strategy": "coverage_aware",
+    "exclude_groups_from": [
+      "D:\\LLM realdata\\benchmarks\\results\\ragtruth_mreg_hhem_ragas_fresh100\\scores_rag-eval-sdk-2.0.0a1_hashing_hhem_026a2b18fa0c.jsonl"
+    ],
+    "hash_dimensions": 2048,
+    "hhem_batch_size": 8,
+    "hhem_device": -1,
+    "hhem_model": "vectara/hallucination_evaluation_model",
+    "hhem_revision": "8e4a2e6e96c708cc76c2344f7e4757df2515292c",
+    "hhem_tokenizer": "google/flan-t5-base",
+    "hhem_tokenizer_revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "max_audit_claims": 2,
+    "max_chunk_characters": 6000,
+    "max_claims": 24,
+    "max_evidence_characters": 6000,
+    "max_input_chunks": 64,
+    "max_order_shift": 0.12,
+    "max_response_characters": 12000,
+    "min_mutation_drop": 0.06,
+    "min_necessity_drop": 0.08,
+    "no_audit": false,
+    "no_global_pair": false,
+    "no_ragas_cache": false,
+    "no_resume": true,
+    "no_retry_failures": false,
+    "objective": "f1",
+    "output_dir": "D:\\LLM realdata\\benchmarks\\results\\ragtruth_step2_spans_frozen_20260821",
+    "progress_every": 10,
+    "ragas_api_key_env": "OPENAI_API_KEY",
+    "ragas_base_url": null,
+    "ragas_max_retries": 5,
+    "ragas_max_tokens": 4096,
+    "ragas_model": null,
+    "ragas_timeout_seconds": 120.0,
+    "risk_calibrator": "threshold",
+    "risk_features": "compact",
+    "risk_fit_fraction": 0.8,
+    "risk_l2": 0.1,
+    "risk_oof_folds": 5,
+    "similarity": "hashing",
+    "support_threshold": 0.7,
+    "test_limit": 300,
+    "test_offset": 0,
+    "trust_remote_code": true,
+    "uncertainty_margin": 0.1,
+    "validation_limit": 100,
+    "validation_offset": 0,
+    "verifier": "hhem",
+    "verifier_cache_entries": 8192
+  },
+  "created_at_utc": "2026-08-21T08:10:13.975801+00:00",
+  "dataset_checksums": {
+    "response.jsonl": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073",
+    "source_info.jsonl": "0dffc26ea9f3c1c3d7c7e8336b56ef1646e3cec876edffcca3c9c624d12d578b"
+  },
+  "dataset_directory": "D:\\LLM realdata\\benchmarks\\data\\RAGTruth",
+  "detectors": [
+    "rag-eval-sdk-2.0.0a2:hashing:hhem:4186414ad4c5"
+  ],
+  "example_ids_sha256": "d075f9986b65d8855b54b313206f3798ef87f3100e4e58335ae484efcbaea0fb",
+  "examples": 400,
+  "excluded_groups_sha256": "acac13f052e4bde94ff6d2e9929451e39758bc2925cd4e2ecc855ba21e19969c",
+  "excluded_source_groups": 193,
+  "exclusion_files": {
+    "D:\\LLM realdata\\benchmarks\\results\\ragtruth_mreg_hhem_ragas_fresh100\\scores_rag-eval-sdk-2.0.0a1_hashing_hhem_026a2b18fa0c.jsonl": "c61ca86681c7621092f6992cd2af4da7c479c0e3587aa4ee2452c7c7bd4f7497"
+  },
+  "notes": [
+    "Subset selection is a label-independent SHA-256 ordering of example IDs.",
+    "Thresholds are selected on train and frozen before test evaluation.",
+    "When learned risk is enabled, source groups are deterministically split into fit and calibration partitions before scoring.",
+    "RAGTruth source_id is enforced as the leakage group.",
+    "Any --exclude-groups-from checkpoints are hashed and excluded before subset selection."
+  ],
+  "protocol": "ragtruth-held-out-v1",
+  "python": "3.12.13",
+  "resume_signature": {
+    "dataset_checksums": {
+      "response.jsonl": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073",
+      "source_info.jsonl": "0dffc26ea9f3c1c3d7c7e8336b56ef1646e3cec876edffcca3c9c624d12d578b"
+    },
+    "detectors": [
+      "rag-eval-sdk-2.0.0a2:hashing:hhem:4186414ad4c5"
+    ],
+    "example_ids_sha256": "d075f9986b65d8855b54b313206f3798ef87f3100e4e58335ae484efcbaea0fb",
+    "excluded_groups_sha256": "acac13f052e4bde94ff6d2e9929451e39758bc2925cd4e2ecc855ba21e19969c",
+    "protocol": "ragtruth-held-out-v1"
+  },
+  "risk_fit_examples": 0,
+  "sdk_version": "2.0.0a2",
+  "test_examples": 300,
+  "validation_examples": 100
+}

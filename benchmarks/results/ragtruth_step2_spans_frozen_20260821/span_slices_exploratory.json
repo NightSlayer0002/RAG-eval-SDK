@@ -1,0 +1,460 @@
+{
+  "annotation_recall_slices": {
+    "claim_risk": {
+      "due_to_null": {
+        "annotations": 8,
+        "character_recall": 0.9626865671641791,
+        "gold_characters": 268,
+        "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+        "overlapped_characters": 258,
+        "responses": 6
+      },
+      "implicit_true": {
+        "annotations": 9,
+        "character_recall": 0.25667351129363447,
+        "gold_characters": 487,
+        "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+        "overlapped_characters": 125,
+        "responses": 8
+      },
+      "label_type": {
+        "Evident Baseless Info": {
+          "annotations": 65,
+          "character_recall": 0.5157197236712252,
+          "gold_characters": 7093,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 3658,
+          "responses": 50
+        },
+        "Evident Conflict": {
+          "annotations": 64,
+          "character_recall": 0.3253873659117998,
+          "gold_characters": 2517,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 819,
+          "responses": 50
+        },
+        "Subtle Baseless Info": {
+          "annotations": 15,
+          "character_recall": 0.24162257495590828,
+          "gold_characters": 567,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 137,
+          "responses": 13
+        }
+      }
+    },
+    "decision": {
+      "due_to_null": {
+        "annotations": 8,
+        "character_recall": 0.996268656716418,
+        "gold_characters": 268,
+        "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+        "overlapped_characters": 267,
+        "responses": 6
+      },
+      "implicit_true": {
+        "annotations": 9,
+        "character_recall": 0.8542094455852156,
+        "gold_characters": 487,
+        "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+        "overlapped_characters": 416,
+        "responses": 8
+      },
+      "label_type": {
+        "Evident Baseless Info": {
+          "annotations": 65,
+          "character_recall": 0.8567601860989709,
+          "gold_characters": 7093,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 6077,
+          "responses": 50
+        },
+        "Evident Conflict": {
+          "annotations": 64,
+          "character_recall": 0.7210965435041716,
+          "gold_characters": 2517,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 1815,
+          "responses": 50
+        },
+        "Subtle Baseless Info": {
+          "annotations": 15,
+          "character_recall": 0.8412698412698413,
+          "gold_characters": 567,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 477,
+          "responses": 13
+        }
+      }
+    },
+    "global_full_response": {
+      "due_to_null": {
+        "annotations": 8,
+        "character_recall": 0.0,
+        "gold_characters": 268,
+        "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+        "overlapped_characters": 0,
+        "responses": 6
+      },
+      "implicit_true": {
+        "annotations": 9,
+        "character_recall": 0.25667351129363447,
+        "gold_characters": 487,
+        "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+        "overlapped_characters": 125,
+        "responses": 8
+      },
+      "label_type": {
+        "Evident Baseless Info": {
+          "annotations": 65,
+          "character_recall": 0.5292541942760468,
+          "gold_characters": 7093,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 3754,
+          "responses": 50
+        },
+        "Evident Conflict": {
+          "annotations": 64,
+          "character_recall": 0.12077870480731029,
+          "gold_characters": 2517,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 304,
+          "responses": 50
+        },
+        "Subtle Baseless Info": {
+          "annotations": 15,
+          "character_recall": 0.2310405643738977,
+          "gold_characters": 567,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 131,
+          "responses": 13
+        }
+      }
+    },
+    "raw_pair_risk": {
+      "due_to_null": {
+        "annotations": 8,
+        "character_recall": 0.9626865671641791,
+        "gold_characters": 268,
+        "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+        "overlapped_characters": 258,
+        "responses": 6
+      },
+      "implicit_true": {
+        "annotations": 9,
+        "character_recall": 0.25667351129363447,
+        "gold_characters": 487,
+        "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+        "overlapped_characters": 125,
+        "responses": 8
+      },
+      "label_type": {
+        "Evident Baseless Info": {
+          "annotations": 65,
+          "character_recall": 0.5109262653320175,
+          "gold_characters": 7093,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 3624,
+          "responses": 50
+        },
+        "Evident Conflict": {
+          "annotations": 64,
+          "character_recall": 0.3182359952324195,
+          "gold_characters": 2517,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 801,
+          "responses": 50
+        },
+        "Subtle Baseless Info": {
+          "annotations": 15,
+          "character_recall": 0.2310405643738977,
+          "gold_characters": 567,
+          "note": "Descriptive recall only. Prediction precision is not attributed to a gold subtype, and overlapping labels are unioned within each response/subtype.",
+          "overlapped_characters": 131,
+          "responses": 13
+        }
+      }
+    }
+  },
+  "boundary_scale": {
+    "claim_unit_length_mean": 107.85547785547786,
+    "claim_unit_length_median": 104,
+    "gold_annotation_length_mean": 71.32638888888889,
+    "gold_annotation_length_median": 41.0,
+    "gold_annotations": 144,
+    "predicted_claim_units": 2145
+  },
+  "claim_risk_minus_raw_pair_character_counts": {
+    "false_negative": -58,
+    "false_positive": 1784,
+    "predicted": 1842,
+    "true_positive": 58
+  },
+  "examples": 300,
+  "protocol": "ragtruth-step2-descriptive-slices-v1",
+  "status": "post-hoc descriptive only; no threshold or model selection",
+  "task_slices": {
+    "Data2txt": {
+      "examples": 88,
+      "strategies": {
+        "claim_risk": {
+          "examples": 88,
+          "macro": {
+            "f1": 0.12900167878068974,
+            "intersection_over_union": 0.08742223068324703,
+            "precision": 0.09025849559876185,
+            "recall": 0.3634604880651734
+          },
+          "micro": {
+            "f1": 0.15762379846020683,
+            "false_negative_characters": 1295,
+            "false_positive_characters": 17196,
+            "gold_characters": 3025,
+            "intersection_over_union": 0.08555462143316354,
+            "precision": 0.09140864419317342,
+            "predicted_characters": 18926,
+            "recall": 0.571900826446281,
+            "true_positive_characters": 1730
+          }
+        },
+        "decision": {
+          "examples": 88,
+          "macro": {
+            "f1": 0.0932612710944713,
+            "intersection_over_union": 0.05301765232827992,
+            "precision": 0.053062095820564516,
+            "recall": 0.5963600635031493
+          },
+          "micro": {
+            "f1": 0.09614089115580791,
+            "false_negative_characters": 28,
+            "false_positive_characters": 56324,
+            "gold_characters": 3025,
+            "intersection_over_union": 0.050497902239296365,
+            "precision": 0.05052173766457072,
+            "predicted_characters": 59321,
+            "recall": 0.9907438016528926,
+            "true_positive_characters": 2997
+          }
+        },
+        "global_full_response": {
+          "examples": 88,
+          "macro": {
+            "f1": 0.3937772904156027,
+            "intersection_over_union": 0.3904509152264206,
+            "precision": 0.3904509152264206,
+            "recall": 0.4318181818181818
+          },
+          "micro": {
+            "f1": 0.08981352277051884,
+            "false_negative_characters": 2671,
+            "false_positive_characters": 4504,
+            "gold_characters": 3025,
+            "intersection_over_union": 0.047018196307610574,
+            "precision": 0.07286949361877315,
+            "predicted_characters": 4858,
+            "recall": 0.11702479338842975,
+            "true_positive_characters": 354
+          }
+        },
+        "raw_pair_risk": {
+          "examples": 88,
+          "macro": {
+            "f1": 0.14367625902472173,
+            "intersection_over_union": 0.10128436974845768,
+            "precision": 0.10425473395242736,
+            "recall": 0.3716239173303309
+          },
+          "micro": {
+            "f1": 0.16695209668738076,
+            "false_negative_characters": 1319,
+            "false_positive_characters": 15706,
+            "gold_characters": 3025,
+            "intersection_over_union": 0.09107896001281299,
+            "precision": 0.09797840569722031,
+            "predicted_characters": 17412,
+            "recall": 0.5639669421487603,
+            "true_positive_characters": 1706
+          }
+        }
+      }
+    },
+    "QA": {
+      "examples": 87,
+      "strategies": {
+        "claim_risk": {
+          "examples": 87,
+          "macro": {
+            "f1": 0.8520174038671506,
+            "intersection_over_union": 0.8416855306994881,
+            "precision": 0.8729817891636208,
+            "recall": 0.8467423119820583
+          },
+          "micro": {
+            "f1": 0.46934673366834173,
+            "false_negative_characters": 2885,
+            "false_positive_characters": 1339,
+            "gold_characters": 4753,
+            "intersection_over_union": 0.3066316480630335,
+            "precision": 0.5824758341128781,
+            "predicted_characters": 3207,
+            "recall": 0.39301493793393644,
+            "true_positive_characters": 1868
+          }
+        },
+        "decision": {
+          "examples": 87,
+          "macro": {
+            "f1": 0.4516575242092936,
+            "intersection_over_union": 0.4383984594951071,
+            "precision": 0.44249471324391665,
+            "recall": 0.47181697211955614
+          },
+          "micro": {
+            "f1": 0.39220183486238536,
+            "false_negative_characters": 1162,
+            "false_positive_characters": 9968,
+            "gold_characters": 4753,
+            "intersection_over_union": 0.24393723252496433,
+            "precision": 0.26484254001032526,
+            "predicted_characters": 13559,
+            "recall": 0.7555228276877761,
+            "true_positive_characters": 3591
+          }
+        },
+        "global_full_response": {
+          "examples": 87,
+          "macro": {
+            "f1": 0.864311764753946,
+            "intersection_over_union": 0.8614919360191462,
+            "precision": 0.8614919360191462,
+            "recall": 0.8735632183908046
+          },
+          "micro": {
+            "f1": 0.5406930605766687,
+            "false_negative_characters": 1687,
+            "false_positive_characters": 3522,
+            "gold_characters": 4753,
+            "intersection_over_union": 0.37051359516616317,
+            "precision": 0.465391621129326,
+            "predicted_characters": 6588,
+            "recall": 0.6450662739322534,
+            "true_positive_characters": 3066
+          }
+        },
+        "raw_pair_risk": {
+          "examples": 87,
+          "macro": {
+            "f1": 0.8520174038671506,
+            "intersection_over_union": 0.8416855306994881,
+            "precision": 0.8729817891636208,
+            "recall": 0.8467423119820583
+          },
+          "micro": {
+            "f1": 0.46934673366834173,
+            "false_negative_characters": 2885,
+            "false_positive_characters": 1339,
+            "gold_characters": 4753,
+            "intersection_over_union": 0.3066316480630335,
+            "precision": 0.5824758341128781,
+            "predicted_characters": 3207,
+            "recall": 0.39301493793393644,
+            "true_positive_characters": 1868
+          }
+        }
+      }
+    },
+    "Summary": {
+      "examples": 125,
+      "strategies": {
+        "claim_risk": {
+          "examples": 125,
+          "macro": {
+            "f1": 0.7521531159803988,
+            "intersection_over_union": 0.7419042186085533,
+            "precision": 0.7462565523721374,
+            "recall": 0.7708529081518078
+          },
+          "micro": {
+            "f1": 0.3654676258992806,
+            "false_negative_characters": 1383,
+            "false_positive_characters": 2145,
+            "gold_characters": 2399,
+            "intersection_over_union": 0.22359154929577466,
+            "precision": 0.3214172730148687,
+            "predicted_characters": 3161,
+            "recall": 0.42350979574822845,
+            "true_positive_characters": 1016
+          }
+        },
+        "decision": {
+          "examples": 125,
+          "macro": {
+            "f1": 0.4815029369825692,
+            "intersection_over_union": 0.457523956401639,
+            "precision": 0.46349607079795474,
+            "recall": 0.5480688789608419
+          },
+          "micro": {
+            "f1": 0.1980319119363985,
+            "false_negative_characters": 618,
+            "false_positive_characters": 13807,
+            "gold_characters": 2399,
+            "intersection_over_union": 0.10989756880167839,
+            "precision": 0.11425455478573261,
+            "predicted_characters": 15588,
+            "recall": 0.7423926636098375,
+            "true_positive_characters": 1781
+          }
+        },
+        "global_full_response": {
+          "examples": 125,
+          "macro": {
+            "f1": 0.7574815545638022,
+            "intersection_over_union": 0.7518820259075069,
+            "precision": 0.7518820259075069,
+            "recall": 0.792
+          },
+          "micro": {
+            "f1": 0.16932731476384455,
+            "false_negative_characters": 1630,
+            "false_positive_characters": 5915,
+            "gold_characters": 2399,
+            "intersection_over_union": 0.09249458744286745,
+            "precision": 0.11505086774386594,
+            "predicted_characters": 6684,
+            "recall": 0.32055022926219257,
+            "true_positive_characters": 769
+          }
+        },
+        "raw_pair_risk": {
+          "examples": 125,
+          "macro": {
+            "f1": 0.7660029183519402,
+            "intersection_over_union": 0.7566622094761332,
+            "precision": 0.7610145432397173,
+            "recall": 0.7788529081518079
+          },
+          "micro": {
+            "f1": 0.37538226299694194,
+            "false_negative_characters": 1417,
+            "false_positive_characters": 1851,
+            "gold_characters": 2399,
+            "intersection_over_union": 0.23105882352941176,
+            "precision": 0.3466290151782563,
+            "predicted_characters": 2833,
+            "recall": 0.40933722384326804,
+            "true_positive_characters": 982
+          }
+        }
+      }
+    }
+  },
+  "thresholds_copied_from_frozen_summary": {
+    "claim_risk": 0.9006062969565392,
+    "decision": null,
+    "global_full_response": 0.8033605217933655,
+    "raw_pair_risk": 0.9006062969565392
+  }
+}

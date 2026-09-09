@@ -1,0 +1,43 @@
+{
+  "bootstrap_samples_completed": 5000,
+  "bootstrap_seed": 1701,
+  "common_successful_examples": 100,
+  "f1_difference_bootstrap_95_percent_ci": [
+    -0.03328014184397168,
+    0.16383263818680738
+  ],
+  "f1_difference_first_minus_second": 0.06197257383966237,
+  "failure_as_incorrect": {
+    "bootstrap_samples_completed": 5000,
+    "f1_difference_bootstrap_95_percent_ci": [
+      -0.03148225828906065,
+      0.16549879832241715
+    ],
+    "f1_difference_first_minus_second": 0.06197257383966237,
+    "first_f1": 0.7708333333333333,
+    "mcnemar": {
+      "first_only_correct": 9,
+      "method": "exact-binomial",
+      "p_value": 1.0,
+      "second_only_correct": 8
+    },
+    "policy": "Every missing or failed score is assigned an incorrect decision.",
+    "second_f1": 0.7088607594936709
+  },
+  "first_coverage": 1.0,
+  "first_detector": "rag-eval-sdk-2.0.0a1:hashing:hhem:026a2b18fa0c:learned-risk:multi-resolution-evidence-geometry-v3:logistic:21d85786913730fc",
+  "first_f1": 0.7708333333333333,
+  "mcnemar": {
+    "first_only_correct": 9,
+    "method": "exact-binomial",
+    "p_value": 1.0,
+    "second_only_correct": 8
+  },
+  "protocol": "paired-held-out-v1",
+  "second_coverage": 1.0,
+  "second_detector": "whole-response-ablation:hhem:026a2b18fa0c",
+  "second_f1": 0.7088607594936709,
+  "split": "test",
+  "total_paired_examples": 100,
+  "warning": "Statistical significance does not establish novelty or production utility."
+}

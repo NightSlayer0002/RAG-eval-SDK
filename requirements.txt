@@ -1,4 +1,7 @@
-sentence-transformers
-torch
-google-genai
-python-dotenv
+numpy>=1.24.0
+
+# Optional capabilities are installed from pyproject extras, for example:
+# pip install -e ".[local]"
+# pip install -e ".[hhem]"
+# pip install -e ".[benchmark]"
+# pip install -e ".[google]"

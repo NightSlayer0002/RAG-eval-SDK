@@ -1,182 +1,123 @@
-# 🔍 RAG Evaluation SDK
+# RAG Evaluation SDK
 
-**A diagnostic evaluation toolkit for RAG pipelines that catches failure modes RAGAS and other tools miss.**
+An experimental, pip-installable Python SDK for evidence-grounded RAG hallucination evaluation. The evaluation core is provider independent and uses observable text, without access to model internals.
 
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Gemini 2.5 Flash](https://img.shields.io/badge/LLM-Gemini%202.5%20Flash-orange.svg)](https://ai.google.dev/)
+The SDK combines offset-traceable claim decomposition, bounded evidence mapping, local HHEM verification, intervention-based audits, and latency/token/truncation telemetry. Precise hallucination boundaries and post-repair certification remain research directions.
 
-> **TL;DR:** Detected 44% more hallucinations than RAGAS by combining embedding metrics with position bias detection, phantom chunk analysis, and failure mode classification — signals that existing tools are architecturally blind to.
+## Evaluated results
 
----
+The frozen Step 1 experiment used 80 fit, 20 calibration, and 100 held-out RAGTruth responses with source-group-disjoint partitions.
 
-## 📊 Benchmark Results (52 Real-World Scenarios)
+| Detector | Held-out F1 | Coverage |
+|---|---:|---:|
+| Compact multi-resolution SDK + HHEM | 0.7708 | 100% |
+| Real Ragas Faithfulness 0.4.3 / Gemini 3.5 Flash-Lite | 0.7473 | 100% |
+| Whole-response HHEM control | 0.7089 | 100% |
 
-Tested on **live Gemini 2.5 Flash API responses** — not synthetic data.
+The SDK-minus-Ragas F1 difference is +0.0236, with paired bootstrap 95% CI [-0.0790, 0.1350]. **The difference is statistically inconclusive.** This is one held-out cohort, not a validated superiority claim. See the [frozen Step 1 report](FROZEN_STEP1_REPORT.md).
 
-| Metric | Baseline | RAGAS | **Our SDK** |
-|---|---|---|---|
-| Hallucinations flagged | 9/52 (17%) | 18/52 (35%) | **26/52 (50%)** ✅ |
-| Position bias detected | 0/52 | 0/52 | **22/52 (42%)** |
-| Failure mode diagnosis | ❌ | ❌ | ✅ |
-| Chunk attribution map | ❌ | ❌ | ✅ |
+Step 2 tested span localization on a separate 100-calibration/300-test cohort, excluding Step 1 source groups. Whole-clause MREG projection scored 0.2602 micro character F1 versus 0.2710 for raw clause HHEM; the paired difference was negative, with 95% CI [-0.0175, -0.0046]. That approach was stopped without test-set retuning. See the [frozen Step 2 report](FROZEN_STEP2_REPORT.md).
 
-<p align="center">
-  <img src="benchmarks/results/benchmark_comparison.png" alt="Benchmark Comparison" width="600"/>
-</p>
+The earlier “44% better than RAGAS” claim was invalid: it compared flag counts against a custom similarity heuristic, not the Ragas package. The [historical audit](RESULTS_AUDIT.md) preserves that correction.
 
----
+## Install
 
-## 🚀 What Makes This Different?
-
-Standard tools give you a **score**. We give you a **diagnosis**.
-
-```
-❌ RAGAS says:    "Faithfulness: 0.72"
-✅ Our SDK says:  "Faithfulness: 0.72 — LLM ignored chunks 4-6 due to 
-                   position bias (U-shaped). 3 phantom chunks wasted.
-                   Failure mode: POSITION_BIAS. Fix: reorder chunks."
-```
-
-### 6 Features (4 are Novel)
-
-| # | Feature | Novel? | What it does |
-|---|---------|--------|--------------|
-| 1 | Relevance & Hallucination Scoring | — | Embedding-based faithfulness metrics |
-| 2 | **Chunk Attribution Map** | ✅ | Which chunks the LLM used vs ignored ("phantom chunks") |
-| 3 | **Inter-Chunk Conflict Detector** | ✅ | Finds contradictions in retrieved context *before* generation |
-| 4 | **Position Bias Detector** | ✅ | Detects "Lost in the Middle" — LLM ignoring middle chunks |
-| 5 | **Failure Mode Classifier** | ✅ | Root-cause diagnosis: retriever vs generator fault |
-| 6 | LLM-as-Judge | — | Gemini cross-validates faithfulness at sentence level |
-
----
-
-## ⚡ Quick Start
-
-### 1. Install
+Python 3.10 or newer:
 
 ```bash
-pip install -e .
+python -m venv .venv
+# Activate .venv using your shell's activation command.
+python -m pip install -e ".[dev]"
 ```
 
-### 2. Set up API key
-
-Get a free key from [aistudio.google.com](https://aistudio.google.com)
+The base package requires NumPy. Importing it does not download a model. Optional capabilities are installed separately:
 
 ```bash
-cp .env.example .env
-# Edit .env and add your GEMINI_API_KEY
+python -m pip install -e ".[hhem]"       # Local HHEM verification
+python -m pip install -e ".[local]"      # Sentence-transformer evidence similarity
+python -m pip install -e ".[benchmark]"  # Real Ragas and benchmark dependencies
+python -m pip install -e ".[google]"     # Google generation adapter
 ```
 
-### 3. Run evaluation
+## Offline example
 
 ```python
-from rag_eval_sdk import (
-    score_relevance_completeness,
-    score_hallucination,
-    score_attribution_map,
-    detect_conflicts,
-    detect_position_bias,
-    classify_failure_mode,
-    judge_faithfulness,
+from rag_eval_sdk import HashingSimilarityBackend, RAGEvaluator
+
+evaluator = RAGEvaluator(similarity_backend=HashingSimilarityBackend())
+report = evaluator.evaluate(
+    response="The library is open Monday through Friday.",
+    chunks=[
+        {"id": "hours", "text": "The library is open Monday through Friday."},
+        {"id": "weekends", "text": "The library is closed on weekends."},
+    ],
 )
 
-chunks = [
-    {"id": 1, "text": "The clinic is open Monday through Friday."},
-    {"id": 2, "text": "We are closed on weekends and holidays."},
-]
-response = "The clinic is open Mon-Fri and closed on weekends."
-retriever_scores = [0.91, 0.85]
-
-# Core metrics
-relevance = score_relevance_completeness(response, chunks)
-hallucination = score_hallucination(response, chunks)
-
-# Novel features
-attribution = score_attribution_map(response, chunks)
-conflicts = detect_conflicts(chunks)
-bias = detect_position_bias(response, chunks, retriever_scores)
-
-print(f"Relevance: {relevance}")
-print(f"Hallucination: {hallucination}")
-print(f"Phantom chunks: {attribution['phantom_count']}")
-print(f"Conflicts: {conflicts['conflict_count']}")
-print(f"Position bias: {bias['bias_detected']}")
+print(report.decision.value)
+print(report.grounding_risk)
+print(report.usage.estimated_input_tokens)
+print(report.to_dict())
 ```
 
-### 4. Run the benchmark
+This default hashing/heuristic configuration is an offline baseline. It is not the HHEM configuration that produced the frozen results.
+
+## How evaluation works
+
+1. Split the response into sentence or clause units with exact character offsets.
+2. Map each unit to a bounded number of evidence chunks.
+3. Verify whole-response and claim/evidence pairs, retaining support, contradiction, and uncertainty.
+4. Audit selected claims by removing evidence or mutating a shared number, entity, or negation.
+5. Optionally escalate uncertain claims through an injected verifier within a hard budget.
+6. Return decisions, evidence IDs, reasons, intervention outcomes, and resource telemetry.
+
+The compact learned risk model combines whole-response risk and worst-claim risk. Intervention probes are diagnostic outputs; they were not learned features in the frozen compact model.
+
+`HHEMPairVerifier`, `CachedPairVerifier`, and `SentenceTransformerBackend` provide optional local components. `OpenAICompatibleProvider`, `GoogleGenAIProvider`, and `LLMPairVerifier` provide generation and escalation adapters. See [the reproduction guide](REPRODUCING.md) for model pins and commands.
+
+## Benchmarks and tests
 
 ```bash
-python benchmarks/real_world_test.py
+python -m pytest -q
+python -m benchmarks.ragtruth_benchmark --help
+python -m benchmarks.span_evaluation --help
+python -m benchmarks.rgb_official --help
 ```
 
----
+RAGTruth supplies human hallucination annotations. The benchmark implements source-group leakage checks, train-only calibration, durable JSONL checkpoints, paired statistics, coverage/failure reporting, and replay audits. RGB is an optional generator robustness experiment, not an equivalent hallucination-detector benchmark.
 
-## 📁 Project Structure
+Frozen predictions, manifests, fitted calibration, summaries, and integrity reports are included under [benchmarks/results](benchmarks/results). Raw datasets, model weights, generation caches, and temporary runs are excluded. **Replay requires the original checksum-matching RAGTruth files, but no model inference or API calls.** Follow [REPRODUCING.md](REPRODUCING.md).
 
-```
-rag-eval-sdk/
-├── rag_eval_sdk/                  # The pip-installable SDK
-│   ├── evaluators.py              # Relevance & hallucination scoring
-│   ├── chunk_attributor.py        # [NOVEL] Chunk attribution map
-│   ├── conflict_detector.py       # [NOVEL] Inter-chunk conflict detection
-│   ├── position_bias_detector.py  # [NOVEL] Position bias detection
-│   ├── failure_classifier.py      # [NOVEL] Failure mode classification
-│   ├── llm_judge.py               # LLM-as-Judge (Gemini)
-│   ├── llm.py                     # Gemini API wrapper
-│   ├── embeddings.py              # Sentence-transformer embeddings
-│   └── main.py                    # Full pipeline orchestrator
-│
-├── benchmarks/
-│   ├── real_world_test.py         # 52-scenario live benchmark
-│   ├── run_benchmarks.py          # Synthetic benchmark (20 scenarios)
-│   └── results/                   # Benchmark outputs & comparison charts
-│
-├── src/                           # Original pipeline (pre-SDK-version)
-├── data/                          # Sample context chunks & queries
-├── tests/                         # Unit tests
-│
-├── pyproject.toml                 # Package configuration
-├── requirements.txt
-└── README.md
+## Repository layout
+
+```text
+rag_eval_sdk/       SDK, provider adapters, verification and diagnostics
+benchmarks/         RAGTruth/RGB runners, statistics and replay audits
+  results/          Frozen Step 1 and Step 2 evidence bundles
+tests/              Offline regression tests
+data/               Small fictional CLI input examples
+FROZEN_STEP*.md      Completed experiments and limitations
+RESEARCH_PROTOCOL.md
+STEP2_PROTOCOL.md   Preserved research protocols
+NOVELTY_LEDGER.md   Unvalidated proposals and prior-art notes
+REPRODUCING.md       Setup, replay and packaging instructions
+VALIDATION_STATUS.md
 ```
 
----
+Legacy API exports remain for compatibility and are covered by tests. The duplicate `src/` implementation, obsolete benchmark scripts/charts, personal study notes, environments, and secrets are excluded from this GitHub edition.
 
-## 🧪 How the Benchmark Works
+## Limitations and research status
 
-All three methods evaluate the **same** Gemini response for fair comparison.
+- Deterministic clauses are not guaranteed to be atomic semantic claims.
+- Evidence similarity mapping does not establish causal attribution or reveal model attention.
+- Intervention-based audits test verifier behavior; they do not certify truth.
+- Failure-stage diagnoses require appropriate pipeline observations and are not validated causal guarantees.
+- Exact boundary localization is unresolved; the tested whole-clause approach failed.
+- Post-repair certification is proposed research, not an implemented or validated capability.
+- Remote generation caches store responses in plaintext; use them only with suitable data.
 
-52 scenarios across 5 categories:
-- **Faithful** (10) — clean grounding, should pass
-- **Hallucination-prone** (10) — sparse context, likely to fabricate
-- **Conflicting context** (12) — contradictory chunks
-- **Position bias** (10) — good middle chunks likely ignored
-- **Mixed failure** (10) — multiple issues combined
+New experiments must use fresh source groups. Frozen cohorts must not be reused to validate changes informed by their test labels. Research hypotheses and remaining checks are recorded in [RESEARCH_PROTOCOL.md](RESEARCH_PROTOCOL.md) and [VALIDATION_STATUS.md](VALIDATION_STATUS.md).
 
----
+## License and datasets
 
-## 📜 Key Research
+SDK code is [MIT licensed](LICENSE). Dataset and model licenses are separate. Obtain [RAGTruth](https://github.com/ParticleMedia/RAGTruth) and [RGB](https://github.com/chen700564/RGB) from their original repositories and follow their terms. Dataset/model files are not redistributed here.
 
-This project builds on:
-
-- **"Lost in the Middle"** (Liu et al., NeurIPS 2023) — LLMs ignore middle context chunks
-- **"RAGAS"** (Es et al., 2023) — Baseline we benchmark against
-- **"Judging LLM-as-a-Judge"** (Zheng et al., 2023) — LLMs evaluating LLMs
-- **"FActScore"** (Min et al., 2023) — Sentence-level factuality evaluation
-
----
-
-## 🛠 Tech Stack
-
-| Component | Technology |
-|-----------|-----------|
-| LLM | Google Gemini 2.5 Flash |
-| Embeddings | all-MiniLM-L6-v2 (sentence-transformers) |
-| Language | Python 3.9+ |
-| Package | pip-installable (pyproject.toml) |
-
----
-
-<p align="center">
-  <b>Built to make RAG pipelines trustworthy.</b>
-</p>

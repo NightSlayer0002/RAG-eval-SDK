@@ -1,0 +1,54 @@
+{
+  "checks": {
+    "all_400_calls_succeeded": true,
+    "all_scores_and_claim_probabilities_valid": true,
+    "answer_summary_replays_exactly": true,
+    "calibration_test_group_overlap_is_zero": true,
+    "claim_offsets_replay_exactly": true,
+    "dataset_hashes_match": true,
+    "excluded_group_digest_matches": true,
+    "exclusion_checkpoint_hashes_match": true,
+    "labels_groups_splits_and_gold_spans_match_dataset": true,
+    "no_selected_ids_or_frozen_cohort_reference_in_prediction_source": true,
+    "old_test_group_overlap_is_zero": true,
+    "record_ids_unique_complete_and_ordered": true,
+    "selected_id_digest_matches": true,
+    "span_summary_and_bootstrap_replay_exactly": true
+  },
+  "digests": {
+    "artifacts_sha256": {
+      "manifest.json": "416e93477cfc33d23ca08908f3994ddba4b62a06a347b318a0bacc130305c906",
+      "scores_rag-eval-sdk-2.0.0a2_hashing_hhem_4186414ad4c5.jsonl": "bb89522c0e4b651bc13afc65b394b9c663128585c83547d1e857bbdb6b8ea371",
+      "span_summary_frozen.json": "d3777707b313faf8882d2a73daa7feaf2ac8330a5fdd13bc561fd4d8c34c333b",
+      "summary_rag-eval-sdk-2.0.0a2_hashing_hhem_4186414ad4c5.json": "6813a86a900a877ca9d62f6bac0260bf909709cb773afad33e38cc841d0e72ab"
+    },
+    "dataset_sha256": {
+      "response.jsonl": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073",
+      "source_info.jsonl": "0dffc26ea9f3c1c3d7c7e8336b56ef1646e3cec876edffcca3c9c624d12d578b"
+    },
+    "exclusion_files_sha256": {
+      "D:\\LLM realdata\\benchmarks\\results\\ragtruth_mreg_hhem_ragas_fresh100\\scores_rag-eval-sdk-2.0.0a1_hashing_hhem_026a2b18fa0c.jsonl": "c61ca86681c7621092f6992cd2af4da7c479c0e3587aa4ee2452c7c7bd4f7497"
+    },
+    "selected_ids_sha256": "d075f9986b65d8855b54b313206f3798ef87f3100e4e58335ae484efcbaea0fb"
+  },
+  "examples": {
+    "calibration": 100,
+    "test": 300,
+    "test_negative": 204,
+    "test_positive": 96
+  },
+  "protocol": "ragtruth-step2-span-replay-audit-v1",
+  "source_groups": {
+    "calibration": 98,
+    "calibration_test_overlap": 0,
+    "excluded_prior": 193,
+    "prior_overlap": 0,
+    "test": 204
+  },
+  "status": "pass",
+  "telemetry": {
+    "rss_available_in_checkpoint": false,
+    "rss_limitation": "psutil was unavailable in the benchmark runtime; checkpoint RSS values are zero",
+    "test_claim_predictions": 2145
+  }
+}

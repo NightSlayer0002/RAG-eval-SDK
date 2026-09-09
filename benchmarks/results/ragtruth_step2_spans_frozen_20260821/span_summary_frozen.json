@@ -1,0 +1,247 @@
+{
+  "baselines": {
+    "global_pair_full_response_projection": {
+      "calibration": {
+        "candidate_thresholds": 102,
+        "metrics": {
+          "examples": 100,
+          "macro": {
+            "f1": 0.5298021333267573,
+            "intersection_over_union": 0.5255887876757638,
+            "precision": 0.5255887876757638,
+            "recall": 0.57
+          },
+          "micro": {
+            "f1": 0.21389603705609883,
+            "false_negative_characters": 2802,
+            "false_positive_characters": 4835,
+            "gold_characters": 3841,
+            "intersection_over_union": 0.11975564776394652,
+            "precision": 0.17688117126319375,
+            "predicted_characters": 5874,
+            "recall": 0.2705024733142411,
+            "true_positive_characters": 1039
+          }
+        },
+        "objective": "micro_character_f1",
+        "strategy": "global_full_response",
+        "successful_examples": 100,
+        "threshold": 0.8033605217933655,
+        "tie_break": "higher_precision_then_higher_threshold"
+      },
+      "held_out": {
+        "examples": 300,
+        "macro": {
+          "f1": 0.6817757313688054,
+          "intersection_over_union": 0.6776491073734303,
+          "precision": 0.6776491073734303,
+          "recall": 0.71
+        },
+        "micro": {
+          "f1": 0.29596919489878826,
+          "false_negative_characters": 5988,
+          "false_positive_characters": 13941,
+          "gold_characters": 10177,
+          "intersection_over_union": 0.17368770213118834,
+          "precision": 0.2310535024820739,
+          "predicted_characters": 18130,
+          "recall": 0.411614424683109,
+          "true_positive_characters": 4189
+        }
+      }
+    },
+    "raw_pair_risk": {
+      "calibration": {
+        "candidate_thresholds": 797,
+        "metrics": {
+          "examples": 100,
+          "macro": {
+            "f1": 0.4897834356431357,
+            "intersection_over_union": 0.4561247312848915,
+            "precision": 0.4706505077704377,
+            "recall": 0.6180120703157389
+          },
+          "micro": {
+            "f1": 0.24583192710091126,
+            "false_negative_characters": 2020,
+            "false_positive_characters": 9153,
+            "gold_characters": 3841,
+            "intersection_over_union": 0.14014160381714638,
+            "precision": 0.16593767085839256,
+            "predicted_characters": 10974,
+            "recall": 0.4740952876854986,
+            "true_positive_characters": 1821
+          }
+        },
+        "objective": "micro_character_f1",
+        "strategy": "raw_pair_risk",
+        "successful_examples": 100,
+        "threshold": 0.9006062969565392,
+        "tie_break": "higher_precision_then_higher_threshold"
+      },
+      "held_out": {
+        "examples": 300,
+        "macro": {
+          "f1": 0.6083979657487004,
+          "intersection_over_union": 0.589074806310788,
+          "precision": 0.6008355005000443,
+          "recall": 0.6790869979549472
+        },
+        "micro": {
+          "f1": 0.2709566148264891,
+          "false_negative_characters": 5621,
+          "false_positive_characters": 18896,
+          "gold_characters": 10177,
+          "intersection_over_union": 0.1567089739620954,
+          "precision": 0.19426914548865767,
+          "predicted_characters": 23452,
+          "recall": 0.447676132455537,
+          "true_positive_characters": 4556
+        }
+      }
+    }
+  },
+  "calibration": {
+    "candidate_thresholds": 636,
+    "metrics": {
+      "examples": 100,
+      "macro": {
+        "f1": 0.48101313331277185,
+        "intersection_over_union": 0.4462018257377657,
+        "precision": 0.4624444133740853,
+        "recall": 0.6108489497483631
+      },
+      "micro": {
+        "f1": 0.23944930519814722,
+        "false_negative_characters": 1980,
+        "false_positive_characters": 9842,
+        "gold_characters": 3841,
+        "intersection_over_union": 0.13600818533947234,
+        "precision": 0.15901905494317697,
+        "predicted_characters": 11703,
+        "recall": 0.48450924238479565,
+        "true_positive_characters": 1861
+      }
+    },
+    "objective": "micro_character_f1",
+    "split": "train",
+    "strategy": "claim_risk",
+    "successful_examples": 100,
+    "threshold": 0.9006062969565392,
+    "tie_break": "higher_precision_then_higher_threshold"
+  },
+  "detector": "rag-eval-sdk-2.0.0a2:hashing:hhem:4186414ad4c5",
+  "held_out": {
+    "claim_risk_threshold": {
+      "examples": 300,
+      "macro": {
+        "f1": 0.5983226712223088,
+        "intersection_over_union": 0.578859415990168,
+        "precision": 0.5905807743881442,
+        "recall": 0.6733590587038343
+      },
+      "micro": {
+        "f1": 0.2601561839248964,
+        "false_negative_characters": 5563,
+        "false_positive_characters": 20680,
+        "gold_characters": 10177,
+        "intersection_over_union": 0.14952847003921316,
+        "precision": 0.1824148019293113,
+        "predicted_characters": 25294,
+        "recall": 0.4533752579345583,
+        "true_positive_characters": 4614
+      }
+    },
+    "coverage": 1.0,
+    "decision_policy_without_threshold": {
+      "examples": 300,
+      "macro": {
+        "f1": 0.3589635452844772,
+        "intersection_over_union": 0.3333223797705594,
+        "precision": 0.3370117111139159,
+        "recall": 0.5401212401092792
+      },
+      "micro": {
+        "f1": 0.16967915251659996,
+        "false_negative_characters": 1808,
+        "false_positive_characters": 80099,
+        "gold_characters": 10177,
+        "intersection_over_union": 0.09270459479817449,
+        "precision": 0.09459917710358548,
+        "predicted_characters": 88468,
+        "recall": 0.8223445023091285,
+        "true_positive_characters": 8369
+      }
+    },
+    "failure_as_empty_prediction": {
+      "examples": 300,
+      "macro": {
+        "f1": 0.5983226712223088,
+        "intersection_over_union": 0.578859415990168,
+        "precision": 0.5905807743881442,
+        "recall": 0.6733590587038343
+      },
+      "micro": {
+        "f1": 0.2601561839248964,
+        "false_negative_characters": 5563,
+        "false_positive_characters": 20680,
+        "gold_characters": 10177,
+        "intersection_over_union": 0.14952847003921316,
+        "precision": 0.1824148019293113,
+        "predicted_characters": 25294,
+        "recall": 0.4533752579345583,
+        "true_positive_characters": 4614
+      }
+    },
+    "split": "test",
+    "successful_examples": 300,
+    "total_examples": 300
+  },
+  "metric_note": "Micro character F1 is primary. Macro includes exact all-negative examples and is secondary. Failed detector calls are excluded from the primary metric and treated as empty predictions in the sensitivity result.",
+  "paired_comparisons": [
+    {
+      "bootstrap_samples": 5000,
+      "bootstrap_unit": "source_group",
+      "conclusion": "first_worse",
+      "confidence_interval_95": [
+        -0.017516403770718968,
+        -0.004643662622022542
+      ],
+      "delta_micro_character_f1": -0.010800430901592661,
+      "first_strategy": "claim_risk",
+      "second_strategy": "raw_pair_risk",
+      "seed": 1729,
+      "source_groups": 204
+    },
+    {
+      "bootstrap_samples": 5000,
+      "bootstrap_unit": "source_group",
+      "conclusion": "inconclusive",
+      "confidence_interval_95": [
+        -0.1898175494821705,
+        0.10430712311415027
+      ],
+      "delta_micro_character_f1": -0.035813010973891946,
+      "first_strategy": "claim_risk",
+      "second_strategy": "global_full_response",
+      "seed": 1729,
+      "source_groups": 204
+    },
+    {
+      "bootstrap_samples": 5000,
+      "bootstrap_unit": "source_group",
+      "conclusion": "first_better",
+      "confidence_interval_95": [
+        0.02209169893388667,
+        0.1521523317198765
+      ],
+      "delta_micro_character_f1": 0.09047703140829644,
+      "first_strategy": "claim_risk",
+      "second_strategy": "decision",
+      "seed": 1729,
+      "source_groups": 204
+    }
+  ],
+  "positive_unit": "union of half-open response character spans",
+  "protocol": "ragtruth-character-localization-v1"
+}

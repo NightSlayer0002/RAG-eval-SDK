@@ -1,0 +1,51 @@
+{
+  "calibration_id": "multi-resolution-evidence-geometry-v3:logistic:21d85786913730fc",
+  "coefficients": [
+    0.5694663404413255,
+    0.4917568843172582
+  ],
+  "decision_threshold": 0.38630570967622013,
+  "feature_names": [
+    "global_pair_risk",
+    "max_pair_risk"
+  ],
+  "feature_schema": "multi-resolution-evidence-geometry-v3",
+  "fit_groups": 78,
+  "fit_split": "fit",
+  "fit_successful_examples": 80,
+  "fit_total_examples": 80,
+  "intercept": -0.690208582137898,
+  "iterations": 5,
+  "l2": 0.1,
+  "means": [
+    0.31138809681870044,
+    0.5993144900596235
+  ],
+  "scales": [
+    0.28550311062791744,
+    0.39232588061140494
+  ],
+  "threshold_selection": {
+    "calibration_id": "threshold-grid-v1:aa3f57b81528",
+    "examples": 80,
+    "folds": 5,
+    "grouping": "group_id",
+    "metrics": {
+      "accuracy": 0.8,
+      "balanced_accuracy": 0.8133874239350912,
+      "f1": 0.7575757575757576,
+      "false_negative": 4,
+      "false_positive": 12,
+      "precision": 0.6756756756756757,
+      "recall": 0.8620689655172413,
+      "true_negative": 39,
+      "true_positive": 25
+    },
+    "objective": "f1",
+    "objective_value": 0.7575757575757576,
+    "positive_when": "higher",
+    "positives": 29,
+    "strategy": "grouped-out-of-fold",
+    "threshold": 0.38630570967622013
+  }
+}

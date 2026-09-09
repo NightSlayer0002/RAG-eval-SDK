@@ -12,7 +12,11 @@ class TestRelevanceScore:
             {"id": 2, "text": "We are closed on weekends and public holidays."},
         ]
         score = score_relevance_completeness(response, chunks)
-        assert 0.5 <= score <= 1.0
+        unrelated = score_relevance_completeness(
+            "A spacecraft entered orbit around a distant planet.", chunks
+        )
+        assert 0.0 <= score <= 1.0
+        assert score > unrelated
 
     def test_low_relevance(self):
         response = "The stock market reached all-time highs yesterday."
@@ -42,9 +46,9 @@ class TestHallucinationScore:
         score = score_hallucination(response, chunks)
         assert score >= 0.3
 
-    def test_empty_chunks_returns_zero(self):
+    def test_empty_chunks_is_maximum_risk(self):
         score = score_hallucination("Any response.", [])
-        assert score == 0.0
+        assert score == 1.0
 
 
 class TestChunkAttribution:

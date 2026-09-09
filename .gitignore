@@ -1,39 +1,48 @@
-# Python
+# Python environments, caches and build products
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
 *.egg-info/
-dist/
-build/
 *.egg
-
-# Virtual environment
+build/
+dist/
 venv/
 .venv/
 env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
 
-# IDE
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated data and outputs
+output/
+tmp/
+benchmarks/data/
+benchmarks/cache/
+benchmarks/checkpoint_*.json
+RGB_en_data/
+*.log
+
+# Keep only the two published evidence bundles under results.
+benchmarks/results/*
+!benchmarks/results/ragtruth_mreg_hhem_ragas_fresh100/
+!benchmarks/results/ragtruth_step2_spans_frozen_20260821/
+
+# Editor, OS and assistant-local files
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# Environment variables (NEVER commit API keys!)
-.env
-
-# OS files
 .DS_Store
 Thumbs.db
-
-# Pytest
-.pytest_cache/
-
-# Byte-compiled
-*.pyc
-
-# Checkpoint files (large, regeneratable)
-benchmarks/checkpoint_*.json
-
-# Gemini/antigravity
 .gemini/
+.codex/
+.agents/
+

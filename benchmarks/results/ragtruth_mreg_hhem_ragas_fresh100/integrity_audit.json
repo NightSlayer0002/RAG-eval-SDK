@@ -1,0 +1,29 @@
+{
+  "artifact_sha256": {
+    "scores_rag-eval-sdk-2.0.0a1_hashing_hhem_026a2b18fa0c.jsonl": "c61ca86681c7621092f6992cd2af4da7c479c0e3587aa4ee2452c7c7bd4f7497",
+    "scores_ragas-faithfulness_0.4.3_gemini-3.5-flash-lite_d5f5ef471c30.jsonl": "775d2cca56c0fe76f805c2b5adafa777f3df5ef0e04fd305918b073cb45569f6",
+    "scores_whole-response-ablation_hhem_026a2b18fa0c.jsonl": "8a1609b4f6cf70cd45439b9567ee7173ae561dac61a53317fd47e14b8f146f08"
+  },
+  "checks": {
+    "all_scores_within_unit_interval": true,
+    "checkpoint_ids_unique_and_complete": true,
+    "checkpoint_labels_groups_and_splits_match_dataset": true,
+    "dataset_checksums_match": true,
+    "no_prediction_source_reference_to_result_directory": true,
+    "no_selected_ids_or_frozen_metrics_in_prediction_source": true,
+    "paired_statistics_reproduced_exactly": true,
+    "risk_model_reproduced_exactly": true,
+    "selected_id_digest_matches": true,
+    "summaries_reproduced_exactly": true,
+    "test_ids_identical_across_detectors": true
+  },
+  "detectors": 3,
+  "examples": {
+    "calibration": 20,
+    "fit": 80,
+    "test": 100
+  },
+  "paired_comparisons": 3,
+  "protocol": "frozen-ragtruth-replay-audit-v1",
+  "status": "pass"
+}
