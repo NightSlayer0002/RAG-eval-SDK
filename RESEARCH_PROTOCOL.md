@@ -11,7 +11,8 @@ Status: Step 1 completed on 2026-08-19. Step 2 completed on 2026-08-21 and its M
 - H5 diagnosis: not tested by RAGTruth and must use controlled pipeline failures.
 - H6 position: not tested by this benchmark and must use actual matched generator interventions.
 
-No Step-1 detector changes may be justified using the frozen 100 test labels. Post-test ideas belong in [NOVELTY_LEDGER.md](NOVELTY_LEDGER.md).
+No Step-1 detector changes may be justified using the frozen 100 test labels.
+Post-test ideas require a new versioned protocol and untouched source groups.
 
 ## Research question
 

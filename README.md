@@ -98,7 +98,6 @@ data/               Small fictional CLI input examples
 FROZEN_STEP*.md      Completed experiments and limitations
 RESEARCH_PROTOCOL.md
 STEP2_PROTOCOL.md   Preserved research protocols
-NOVELTY_LEDGER.md   Unvalidated proposals and prior-art notes
 REPRODUCING.md       Setup, replay and packaging instructions
 VALIDATION_STATUS.md
 ```
